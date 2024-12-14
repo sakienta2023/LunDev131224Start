@@ -207,7 +207,7 @@ header a {
    animation-delay: 1.8s;
 }
 
-/* ---- Effect Next Button ----- */
+/* ---- Effect Next Button (Add 'next'class to the Carousel element) ----- */
 
 .carousel.next .list .item:nth-child(1) img {
     width: 150px;
@@ -227,4 +227,119 @@ header a {
         bottom: 0;
         border-radius: 0;
     }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+    to {
+        width: 150px;
+    }
+}
+
+.carousel.next .thumbnail {
+    transform: translateX(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+    to {
+    transform: translateX(0);
+    }
+}
+
+/* ===== Effect Prev button ( Remove 'next'and Add 'prev'class to the Carousel element )===== */
+
+.carousel.prev .list .item:nth-child(2) {
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage .5s linear 1 forwards;
+}
+
+@keyframes outImage {
+    to {
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1) {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .buttons {
+    animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+.carousel.next .arrows button,
+.carousel.prev .arrows button {
+    pointer-events: none;
+}
+
+/* === time ==== */
+
+.time {
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    animation: timeRun 1.5s linear 1 forwards;
+}
+
+.carousel.next .time,
+.carousel.prev .time {
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+
+@keyframes timeRunning {
+    to {
+        width: 0;
+    }
+}
+
+/* ==== at this point remove the prev class from the 
+carousel and later proceed to JavaScript === */
+
+/* ====== Responsive styles ===== */
+
+@media screen and (max-width:678px) {
+
+.carousel .list .item .content {
+    padding-right: 0;
+}
+.carousel .list .item .title {
+    font-size: 30px;
+}
+
 }
