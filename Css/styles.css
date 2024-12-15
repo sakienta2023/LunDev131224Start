@@ -59,7 +59,7 @@ header a {
     width: 1140px;
     max-width: 80%;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
     padding-right: 30%;
     box-sizing: border-box;
     color: #fff;
@@ -183,7 +183,7 @@ header a {
     transform: translateY(50px);
     filter: blur(20px);
     opacity: 0;
-    animation: showContent .5s 1s linear forwards;
+    animation: showContent .5s 1s linear 1 forwards;
 }
 
 @keyframes showContent {
